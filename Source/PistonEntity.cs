@@ -1,13 +1,14 @@
 ﻿// <copyright file="PistonEntity.cs" company="Emik">
 // Copyright (c) Emik. This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 // </copyright>
-namespace Emik.Kebnekaise.Piston;
+namespace Emik.Kebnekaise.Pistons;
 
 /// <summary>A modded solid that moves when touched.</summary>
 [CustomEntity($"KebnekaiseHelper/{nameof(PistonEntity)}")]
 public sealed class PistonEntity : Solid
 {
     /// <summary>Gets a dictionary that contains a key-value mapping of every ease in <see cref="Eases"/>.</summary>
+    [Pure]
     public static IDictionary<string, Easer> Eases { get; } =
         typeof(Ease).GetFields().ToDictionary(x => x.Name, x => (Easer)x.GetValue(null));
 
@@ -21,7 +22,7 @@ public sealed class PistonEntity : Solid
         const char DefaultCharType = '3';
 
         var easeData = data.Attr("ease", nameof(Linear));
-        var tileData = data.Char("tile", DefaultCharType);
+        var tileData = data.Char("tiletype", DefaultCharType);
         var timeData = data.Float("time", 1);
 
         SurfaceSoundIndex = SurfaceIndex.TileToIndex.Nth(tileData) is var c && c is '\0' ? c : DefaultCharType;
