@@ -1,6 +1,6 @@
-- Name: Kebnekaise
+- Name: Pistons
   Version: 1.0.0
-  DLL: Kebnekaise.dll
+  DLL: Emik.Kebnekaise.Pistons.dll
   Dependencies:
     - Name: Everest
       Version: 1.2742.0
