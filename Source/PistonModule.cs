@@ -4,6 +4,7 @@
 namespace Emik.Kebnekaise.Pistons;
 
 /// <summary>This module definition is required for the mod to load.</summary>
+[CLSCompliant(false)]
 public sealed class PistonModule : EverestModule
 {
     static PistonModule? s_instance;

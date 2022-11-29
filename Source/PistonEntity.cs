@@ -4,14 +4,9 @@
 namespace Emik.Kebnekaise.Pistons;
 
 /// <summary>A modded solid that moves when touched.</summary>
-[CustomEntity($"KebnekaiseHelper/{nameof(PistonEntity)}")]
+[CLSCompliant(false), CustomEntity($"KebnekaiseHelper/{nameof(PistonEntity)}")]
 public sealed class PistonEntity : Solid
 {
-    /// <summary>Gets a dictionary that contains a key-value mapping of every ease in <see cref="Eases"/>.</summary>
-    [Pure]
-    public static IDictionary<string, Easer> Eases { get; } =
-        typeof(Ease).GetFields().ToDictionary(x => x.Name, x => (Easer)x.GetValue(null));
-
     /// <summary>Initializes a new instance of the <see cref="PistonEntity"/> class.</summary>
     /// <param name="data">The entity data containing the tile data and ease type.</param>
     /// <param name="offset">The destination of the block.</param>
@@ -40,13 +35,18 @@ public sealed class PistonEntity : Solid
         Add(move);
     }
 
+    /// <summary>Gets a dictionary that contains a key-value mapping of every ease in <see cref="Eases"/>.</summary>
+    [Pure]
+    public static IDictionary<string, Easer> Eases { get; } =
+        typeof(Ease).GetFields().ToDictionary(x => x.Name, x => (Easer)x.GetValue(null), StringComparer.Ordinal);
+
     /// <summary>An enumerator for updating the location of this object.</summary>
     /// <param name="ease">The ease to use.</param>
     /// <param name="end">The location to move to.</param>
     /// <param name="time">The amount of time needed for moving.</param>
     /// <returns>
     /// An <see cref="IEnumerator{T}"/> object that updates the location
-    /// of itself when <see cref="IEnumerator{T}.MoveNext"/> is invoked.
+    /// of itself when <see cref="IEnumerator.MoveNext"/> is invoked.
     /// <see cref="IEnumerator{T}.Current"/> is always <see langword="null"/>.
     /// </returns>
     [Pure]
@@ -73,6 +73,7 @@ public sealed class PistonEntity : Solid
         MoveTo(end);
         end = start;
         goto start;
+
         // ReSharper disable once IteratorNeverReturns
     }
 }
