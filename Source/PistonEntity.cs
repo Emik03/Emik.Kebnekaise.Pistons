@@ -1,13 +1,18 @@
-﻿// <copyright file="PistonEntity.cs" company="Emik">
+﻿#region Emik.MPL
+
+// <copyright file="PistonEntity.cs" company="Emik">
 // Copyright (c) Emik. This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 // </copyright>
+
+#endregion
+
 namespace Emik.Kebnekaise.Pistons;
 
 /// <summary>A modded solid that moves when touched.</summary>
 [CLSCompliant(false), CustomEntity($"KebnekaiseHelper/{nameof(PistonEntity)}")]
 public sealed class PistonEntity : Solid
 {
-    /// <summary>Initializes a new instance of the <see cref="PistonEntity"/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref="PistonEntity" /> class.</summary>
     /// <param name="data">The entity data containing the tile data and ease type.</param>
     /// <param name="offset">The destination of the block.</param>
     public PistonEntity(EntityData data, Vector2 offset)
@@ -35,7 +40,7 @@ public sealed class PistonEntity : Solid
         Add(move);
     }
 
-    /// <summary>Gets a dictionary that contains a key-value mapping of every ease in <see cref="Eases"/>.</summary>
+    /// <summary>Gets a dictionary that contains a key-value mapping of every ease in <see cref="Eases" />.</summary>
     [Pure]
     public static IDictionary<string, Easer> Eases { get; } =
         typeof(Ease).GetFields().ToDictionary(x => x.Name, x => (Easer)x.GetValue(null), StringComparer.Ordinal);
@@ -44,11 +49,8 @@ public sealed class PistonEntity : Solid
     /// <param name="ease">The ease to use.</param>
     /// <param name="end">The location to move to.</param>
     /// <param name="time">The amount of time needed for moving.</param>
-    /// <returns>
-    /// An <see cref="IEnumerator{T}"/> object that updates the location
-    /// of itself when <see cref="IEnumerator.MoveNext"/> is invoked.
-    /// <see cref="IEnumerator{T}.Current"/> is always <see langword="null"/>.
-    /// </returns>
+    /// <returns>An <see cref="IEnumerator{T}" /> object that updates the location of itself when <see
+    ///     cref="IEnumerator.MoveNext" /> is invoked. <see cref="IEnumerator{T}.Current" /> is always <see langword="null" />.</returns>
     [Pure]
     public IEnumerator<object?> Move(Easer ease, Vector2 end, float time)
     {

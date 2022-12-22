@@ -1,6 +1,11 @@
-﻿// <copyright file="PistonModule.cs" company="Emik">
+﻿#region Emik.MPL
+
+// <copyright file="PistonModule.cs" company="Emik">
 // Copyright (c) Emik. This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 // </copyright>
+
+#endregion
+
 namespace Emik.Kebnekaise.Pistons;
 
 /// <summary>This module definition is required for the mod to load.</summary>
@@ -9,7 +14,7 @@ public sealed class PistonModule : EverestModule
 {
     static PistonModule? s_instance;
 
-    /// <summary>Initializes a new instance of the <see cref="PistonModule"/> class.</summary>
+    /// <summary>Initializes a new instance of the <see cref="PistonModule" /> class.</summary>
     public PistonModule() => s_instance = this;
 
     /// <summary>Gets the singleton instance.</summary>
