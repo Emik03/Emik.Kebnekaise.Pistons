@@ -1,5 +1,7 @@
 # Emik.Kebnekaise.Pistons
 
+[![License](https://img.shields.io/github/license/Emik03/Emik.Kebnekaise.Pistons.svg?style=flat)](https://github.com/Emik03/Emik.Kebnekaise.Pistons/blob/main/LICENSE)
+
 This Celeste/Everest mod adds a modded solid that moves when touched.
 
 This project has a dependency to [Emik.Morsels](https://github.com/Emik03/Emik.Morsels), if you are building this project, refer to its [README](https://github.com/Emik03/Emik.Morsels/blob/main/README.md) first.
