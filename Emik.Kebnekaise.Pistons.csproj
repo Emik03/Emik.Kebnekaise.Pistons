@@ -5,4 +5,7 @@
         <DefineConstants>$(DefineConstants);NO_SYSTEM_MEMORY</DefineConstants>
         <Description>Celeste/Everest Mod that adds a flexible solid that moves when touched.</Description>
     </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Remove="Emik.SourceGenerators.Tattoo"/>
+    </ItemGroup>
 </Project>
