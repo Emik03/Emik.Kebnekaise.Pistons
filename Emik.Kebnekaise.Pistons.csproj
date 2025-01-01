@@ -1,6 +1,7 @@
 ﻿<!-- SPDX-License-Identifier: MPL-2.0 -->
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <CopyrightSince>2022</CopyrightSince>
         <TargetFramework>net452</TargetFramework>
         <DefineConstants>$(DefineConstants);NO_SYSTEM_MEMORY</DefineConstants>
         <Description>Celeste/Everest Mod that adds a flexible solid that moves when touched.</Description>
